@@ -1,38 +1,51 @@
 body {
     overflow: hidden;
-    background-color: black;
+    background-color:white;
+	font-family: VT323, sans-serif;
 }
 .container {
     position: relative;
     top: 50vh;
-    transform: scale(3.5);
+    transform: scale(3.3); 
     animation: scale 3s infinite;
 }
-.text, .square {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#playlist {
+	margin: 50px;
 }
 p {
-    position: relative;
-    font-size: 12px;
-    display: inline-block;
-    font-family: Anton, sans-serif;
-    color: white !important;
-    z-index: 10;
-    margin: -3px;
+	margin: 5px 0;
 }
-p:nth-child(2) {
-    top: -10px;
-    margin-right: 5px;
+.songs {
+	cursor: pointer;
 }
-p:nth-child(6) {
-    top: 3px;
+.pages p {
+	position: relative;
+	left: -20px;
 }
-p:nth-child(4) {
-    top: 10px;
+.prev, .next {
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent; 
+	cursor: pointer;
+	float: left;
+	position: relative;
+	top: 3px;
+	padding: 0.5px;
+	z-index: 10;
 }
+.prev {
+	left: 40px;
+	border-right:9px solid black; 
+}
+.next {
+	border-left:9px solid black;
+	left: 45px;
+}
+
+/*******/
+/* SVG */
+/*******/
 svg {
     position: absolute;
     top: 0;
@@ -44,54 +57,55 @@ svg {
     z-index: -1;
 }
 circle {
-    stroke: black;
+    stroke: white;
 }
 #one {
-    fill: none;
-    stroke-width: 8px;
-    stroke-dasharray: 70;
+	fill: transparent;
+    stroke-width: 2px;
+    stroke-dasharray: 100;
     stroke-dashoffset: 0;
     animation: one 3s alternate infinite ease-in-out;
 }
 #two {
-    fill: none;
+    fill: transparent;
     stroke-width: 3px;
 }
 #three {
-   
+   fill: transparent;
 }
 #four {
-    fill:none;
+	fill: transparent;
     stroke-width: 6px;
-    stroke-dasharray: 2;
+    stroke-dasharray: 1;
     animation: four 3s infinite;
     
 }
 #five {
+	fill: transparent;
     stroke: white;
-    stroke-width: 2px;
+    stroke-width: 1px;
     stroke-dasharray: 80;
     animation: five 5s alternate infinite ease-in-out;
 }
 #six {
-    fill: none;
+    fill: transparent;
     stroke-width: 1px;
 }
 #seven {
-    fill: none;
+    fill: transparent;
     stroke: white;
     stroke-width: 1px;
 }
 #eight {
-    fill: white;
+
 }
 @keyframes one {
     from {
-        stroke-dasharray: 70;
+        stroke-dasharray: 100;
         stroke-dashoffset: 500;
     }
     to {
-        stroke-dasharray: 90;
+        stroke-dasharray: 120;
         stroke-dashoffset: 0;
     }
 }
@@ -107,12 +121,30 @@ circle {
 }
 @keyframes scale {
     0% {
-        transform: scale(3.5);
+        transform: scale(3.3);
     }
     25%,50% {
-        transform: scale(3.7);
-    }
-    75% {
         transform: scale(3.5);
     }
+    75% {
+        transform: scale(3.3);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+	.container {
+		transform: scale(1.5);
+	}
+	
+	@keyframes scale {
+		0% {
+			transform: scale(1.5);
+		}
+		25%,50% {
+			transform: scale(1.7);
+		}
+		75% {
+			transform: scale(1.5);
+		}
+	}
 }

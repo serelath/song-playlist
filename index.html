@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <title>Assignment 9</title>
     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <div class="text">
-    <p>L</p>
-    <p>E </p>
-    <p>B</p>
-    <p>L</p>
-    <p>O</p>
-    <p>O</p>
-    <p>P</p>
-    </div>
-
     <svg>
-       <circle id="eight" cx="150" cy="71" r="88"></circle>
+      <defs>
+		<pattern id="song-image" x="-2%" y="-2%" height="104%" width="104%"
+				 viewBox="0 0 512 512">
+		  <image x="0%" y="0%" width="512" height="512" xlink:href="images/let-u-go.jpg"></image>
+		</pattern>
+	  </defs>
+      	<circle id="eight" cx="150" cy="71" r="83" fill="url(#song-image)"></circle>
         <circle id="one" cx="150" cy="71" r="76"></circle>
         <circle id="two" cx="150" cy="71" r="62"></circle>
         <circle id="three" cx="150" cy="71" r="57"></circle>
@@ -31,7 +31,33 @@
     </svg>
 </div>
 
+<div id="playlist">
+    <h3>Now Playing</h3>
+    <p class="songs" data-song="1" data-image="images/let-u-go.jpg">[kai dreams] Do You Wonder</p>
+    
+    <h3>Playing Next</h3>
+    <p class="songs" data-song="2" data-image="images/let-u-go.jpg">[Jason Mraz] Make It Mine</p>
+    <p class="songs" data-song="3" data-image="images/let-u-go.jpg"></p>
+    <p class="songs" data-song="4" data-image="images/let-u-go.jpg">[Jome] Crystalline</p>
+    <p class="songs" data-song="5" data-image="images/let-u-go.jpg">[Barrett Marshall, Ivri] Sleep</p>
+    <p class="songs" data-song="6" data-image="images/let-u-go.jpg">[Faime] Let U Go</p>
+    <p class="songs" data-song="6" data-image="images/let-u-go.jpg">[mac moon, Souly Had] Love Spell</p>
+    <br>
+    <div class="pages">
+    	<div class="prev"></div>
+    	<div class="next"></div>
+    	<p>[0/1]</p>
+    </div>
+    
+    <h3>Previous</h3>
+    <div class="pages">
+    	<div class="prev"></div>
+    	<div class="next"></div>
+    	<p>[0/1]</p>
+    </div>
+</div>
 
+<script src="playlist.js"></script>
 
 </body>
 </html>
