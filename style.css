@@ -1,0 +1,118 @@
+body {
+    overflow: hidden;
+    background-color: black;
+}
+.container {
+    position: relative;
+    top: 50vh;
+    transform: scale(3.5);
+    animation: scale 3s infinite;
+}
+.text, .square {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+p {
+    position: relative;
+    font-size: 12px;
+    display: inline-block;
+    font-family: Anton, sans-serif;
+    color: white !important;
+    z-index: 10;
+    margin: -3px;
+}
+p:nth-child(2) {
+    top: -10px;
+    margin-right: 5px;
+}
+p:nth-child(6) {
+    top: 3px;
+}
+p:nth-child(4) {
+    top: 10px;
+}
+svg {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin: auto;
+    overflow: visible;
+    z-index: -1;
+}
+circle {
+    stroke: black;
+}
+#one {
+    fill: none;
+    stroke-width: 8px;
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+    animation: one 3s alternate infinite ease-in-out;
+}
+#two {
+    fill: none;
+    stroke-width: 3px;
+}
+#three {
+   
+}
+#four {
+    fill:none;
+    stroke-width: 6px;
+    stroke-dasharray: 2;
+    animation: four 3s infinite;
+    
+}
+#five {
+    stroke: white;
+    stroke-width: 2px;
+    stroke-dasharray: 80;
+    animation: five 5s alternate infinite ease-in-out;
+}
+#six {
+    fill: none;
+    stroke-width: 1px;
+}
+#seven {
+    fill: none;
+    stroke: white;
+    stroke-width: 1px;
+}
+#eight {
+    fill: white;
+}
+@keyframes one {
+    from {
+        stroke-dasharray: 70;
+        stroke-dashoffset: 500;
+    }
+    to {
+        stroke-dasharray: 90;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes five {
+    from {
+        stroke-dasharray: 90;
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dasharray: 70;
+        stroke-dashoffset: 300;
+    }
+}
+@keyframes scale {
+    0% {
+        transform: scale(3.5);
+    }
+    25%,50% {
+        transform: scale(3.7);
+    }
+    75% {
+        transform: scale(3.5);
+    }
+}
