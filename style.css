@@ -3,20 +3,104 @@ body {
     background-color:white;
 	font-family: VT323, sans-serif;
 }
-.container {
+#container {
     position: relative;
-    top: 50vh;
+    top: calc(50vh - 45px);
     transform: scale(3.3); 
     animation: scale 3s infinite;
+	animation-play-state: paused;
+	filter:grayscale(1);
 }
+#intro {
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%) scale(1);
+	z-index: 50;
+	background-color: black;
+	color: white;
+	padding: 25px 50px;
+	margin: auto;
+	width: 600px;
+	transition: 0.3s;
+	transition-timing-function: cubic-bezier(.76,-0.3,.77,1.36);
+	transform-origin: 50% 47.5%;
+}
+#intro div {
+	display: inline-block;
+	margin: 25px auto;
+	text-align: center;
+	width: calc(32.5%);
+}
+#intro h1 {
+	margin: 5px 0;
+}
+#intro h2 {
+	padding: 8px 50px;
+	border: 2px solid white;
+	display: inline-block;
+}
+#intro p {
+	position: absolute;
+	right: 5px; 
+	top: 5px;
+}
+i {
+	margin-top: 20px;
+	font-size: 1.5rem;
+	border: 2px solid white;
+	padding: 10px 12px;
+}
+.fa-volume-off {
+	padding: 10px 20px;
+}
+#now-playing h3, #volume, #volume p, .arrows {
+	display: inline-block;
+}
+#volume {
+	position: relative;
+	top: 3px;
+}
+#volume .fa-volume-off {
+	font-size: 1.2rem;
+	padding: 8px 8px 8px 8px;
+}
+#volume i {
+	cursor: pointer;
+}
+#volume p {
+	position: relative;
+	top: -2px;
+	left: -8px;
+}
+.arrows i {
+	position: relative;
+	top: -2px;
+	left: 2px;
+	font-size: 0.8rem;
+	padding: 2px !important;
+	margin: 0 -5px !important;
+}
+	
+/************/
+/* PLAYLIST */
+/************/
+
 #playlist {
 	margin: 50px;
 }
 p {
-	margin: 5px 0;
+	margin: 0 0;
+	padding: 2px 0;
 }
 .songs {
+	position: relative;
+	left: 0;
 	cursor: pointer;
+	transition: 0.1s;
+	width: 300px;
+}
+.songs:hover {
+	left: 5px;
 }
 .pages p {
 	position: relative;
@@ -65,6 +149,7 @@ circle {
     stroke-dasharray: 100;
     stroke-dashoffset: 0;
     animation: one 3s alternate infinite ease-in-out;
+	animation-play-state: paused;
 }
 #two {
     fill: transparent;
@@ -86,6 +171,7 @@ circle {
     stroke-width: 1px;
     stroke-dasharray: 80;
     animation: five 5s alternate infinite ease-in-out;
+	animation-play-state: paused;
 }
 #six {
     fill: transparent;
@@ -97,7 +183,12 @@ circle {
     stroke-width: 1px;
 }
 #eight {
-
+	filter: grayscale(1);
+}
+text {
+	transition: 0.2s;
+	transition-timing-function: cubic-bezier(.28,.08,.77,1.36);
+	transform-origin: 50% 47.5%;
 }
 @keyframes one {
     from {
@@ -130,6 +221,10 @@ circle {
         transform: scale(3.3);
     }
 }
+
+/***************/
+/* MEDIA QUERY */
+/***************/
 
 @media only screen and (max-width: 600px) {
 	.container {

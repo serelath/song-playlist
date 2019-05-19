@@ -10,14 +10,35 @@
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     
     <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+    
+	<!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
+<div id="intro">
+	<div>
+		<h1>PLAY / PAUSE</h1>
+		<h2>SPACE</h2>
+	</div>
+	<div>
+		<h1>PREV / NEXT</h1>
+		<i class="fas fa-long-arrow-alt-left"></i>
+		<i class="fas fa-long-arrow-alt-right"></i>
+	</div>
+	<div>
+		<h1>VOLUME</h1>
+		<i class="fas fa-volume-off"></i>
+		<i class="fas fa-long-arrow-alt-up"></i>
+		<i class="fas fa-long-arrow-alt-down"></i>
+	</div>
+	<p>PRESS SPACE TO CLOSE [X]</p>
+</div>
+<div id="container">
     <svg>
       <defs>
 		<pattern id="song-image" x="-2%" y="-2%" height="104%" width="104%"
 				 viewBox="0 0 512 512">
-		  <image x="0%" y="0%" width="512" height="512" xlink:href="images/let-u-go.jpg"></image>
+		  <image x="0%" y="0%" width="512" height="512" xlink:href="images/do-you-wonder.jpg"></image>
 		</pattern>
 	  </defs>
       	<circle id="eight" cx="150" cy="71" r="83" fill="url(#song-image)"></circle>
@@ -28,33 +49,63 @@
         <circle id="five" cx="150" cy="71" r="54"></circle>
         <circle id="six" cx="150" cy="71" r="71"></circle>
         <circle id="seven" cx="150" cy="71" r="50"></circle>
+        <text x="45%" y="50%" class="small" fill="white">PAUSE</text>
     </svg>
 </div>
 
 <div id="playlist">
-    <h3>Now Playing</h3>
-    <p class="songs" data-song="1" data-image="images/let-u-go.jpg">[kai dreams] Do You Wonder</p>
+   <div id="now-playing">
+   	<h3>Now Playing</h3>
+    	<div id="volume">
+			<i class="fas fa-volume-off"></i>
+  			<p>20%</p>
+   		</div>
+   		<div class="now-playing">
+   			<p class="songs" data-song="1" data-image="images/let-u-go.jpg">[Jome] Crystalline</p>
+   		</div>
+	    
+   </div>
+    
     
     <h3>Playing Next</h3>
-    <p class="songs" data-song="2" data-image="images/let-u-go.jpg">[Jason Mraz] Make It Mine</p>
-    <p class="songs" data-song="3" data-image="images/let-u-go.jpg"></p>
-    <p class="songs" data-song="4" data-image="images/let-u-go.jpg">[Jome] Crystalline</p>
-    <p class="songs" data-song="5" data-image="images/let-u-go.jpg">[Barrett Marshall, Ivri] Sleep</p>
-    <p class="songs" data-song="6" data-image="images/let-u-go.jpg">[Faime] Let U Go</p>
-    <p class="songs" data-song="6" data-image="images/let-u-go.jpg">[mac moon, Souly Had] Love Spell</p>
+    <div id="playing-next">
+		<p class="songs" data-song="2" data-image="images/let-u-go.jpg">[Jason Mraz] Make It Mine</p>
+		<p class="songs" data-song="3" data-image="images/let-u-go.jpg">[Billie Elish] Six Feet Under</p>
+		<p class="songs" data-song="4" data-image="images/let-u-go.jpg">[Olivver the Kid] Hell</p>
+		<p class="songs" data-song="5" data-image="images/let-u-go.jpg">[Nuages] Closer</p>
+		<p class="songs" data-song="6" data-image="images/do-you-wonder.jpg">[kai dreams] Do You Wonder</p>
+		<p class="songs" data-song="7" data-image="images/let-u-go.jpg">[mac moon, Souly Had] Love Spell</p>
+		<p class="songs" data-song="8" data-image="images/let-u-go.jpg">[Barrett Marshall, Ivri] Sleep</p>
+		<p class="songs" data-song="9" data-image="images/let-u-go.jpg">[Faime] Let U Go</p>
+		<p class="songs" data-song="10" data-image="images/let-u-go.jpg">[mac moon, Souly Had] Love Spell</p>
+		<p class="songs" data-song="11" data-image="images/let-u-go.jpg">[birthday] Subtle Love</p>
+		<p class="songs" data-song="12" data-image="images/let-u-go.jpg">[Vancouver Sleep Clinic] Someone to Stay</p>
+		<p class="songs" data-song="13" data-image="images/let-u-go.jpg">[TSUKI, Shiloh Dynasty] Who?</p>
+		<p class="songs" data-song="14" data-image="images/let-u-go.jpg">[Brandon Banks] Autumn</p>
+    </div>
+    
     <br>
     <div class="pages">
     	<div class="prev"></div>
     	<div class="next"></div>
-    	<p>[0/1]</p>
+    	<p>[1/1]</p>
     </div>
     
     <h3>Previous</h3>
+    <div id="previous">
+    	
+    </div>
+    
     <div class="pages">
     	<div class="prev"></div>
     	<div class="next"></div>
-    	<p>[0/1]</p>
+    	<p>[1/1]</p>
     </div>
+    
+    <div id="audio">
+    	<audio src="" data-song="1"></audio>
+    </div>
+    
 </div>
 
 <script src="playlist.js"></script>
