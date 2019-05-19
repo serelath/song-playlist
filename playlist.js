@@ -1,10 +1,14 @@
-function songs (e) {
-	var nowPlaying = document.querySelectorAll('.songs');
-	var audio = document.querySelectorAll('audio');
-}
+// SONG NAMES
+var allSongNames = document.querySelectorAll('p.songs');
+var songNames = [];
 
-var nowPlaying = document.querySelectorAll('.songs');
+allSongNames.forEach(function(e) {
+	songNames.push(e);
+})
+
+// AUDIO
 var audio = document.querySelectorAll('audio');
+
 var allSongs = [];
 var nowPlaying = allSongs[0];
 var prevSongs = [];
@@ -16,12 +20,13 @@ audio.forEach(function(e) {
 	allSongs.push(e);
 })
 
-console.log(allSongs);
-
+// VOLUME
 function volume (e) {
 	
 }
 
+
+//KEYPRESS
 function keyPress (e) {
 	var key = event.keyCode;
 	
@@ -61,11 +66,12 @@ function keyPress (e) {
 		}
 	}
 	if (key == 39 && notIntro == true) {
+		var nowPlayingName = document.getElementsByClassName(".now-playing").innerHTML = allSongNames[0];
+		
 		if (allSongs.length != 0) {
 			allSongs[0].pause();
 			prevSongs.unshift(allSongs[0]);
 			allSongs.shift();
-			console.log(allSongs);
 			if (playState == true) {
 				allSongs[0].load();
 				allSongs[0].play();
@@ -87,6 +93,5 @@ function keyPress (e) {
 	
 	console.log(e.keyCode);
 }
-
 
 window.addEventListener('keydown', keyPress);
