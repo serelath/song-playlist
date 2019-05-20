@@ -21,16 +21,20 @@ audio.forEach(function(e) {
 	allSongs.push(e);
 })
 
-// VOLUME
-function volume (e) {
-	
+for (var i = 0; i < allSongs.length ; i++) {
+    allSongs[i].volume = 0.2;
 }
+
+// VOLUME
+var volume = document.querySelector('#volume p');
+var volumeNum = 20;
 
 
 //KEYPRESS
 function keyPress (e) {
 	var key = event.keyCode;
 	
+    // SPACE
 	if (key == 32) {
 		var one = document.getElementById("one");
 		var two = document.getElementById("five");
@@ -64,6 +68,8 @@ function keyPress (e) {
 			notIntro = true;
 		}
 	}
+    
+    // RIGHT
 	if (key == 39 && notIntro == true) {
 		var nowPlayingName = document.querySelector(".now-playing p");
         var playingNext = document.querySelector("#playing-next");
@@ -97,7 +103,6 @@ function keyPress (e) {
             for (var i = 1 ; i < prevSongNames.length; i++) {
                 playPrevSongs.innerHTML = '<p class="songs">' + prevSongNames[i].innerHTML + '</p>' + playPrevSongs.innerHTML;   
             };
-            console.log(prevSongNames);
             
 			if (playState == true) {
 				allSongs[0].load();
@@ -105,6 +110,8 @@ function keyPress (e) {
 			}
 		}
 	}
+    
+    // LEFT
 	if (key == 37) {
 		if (prevSongs.length != 0) {
             var nowPlayingName = document.querySelector(".now-playing");
@@ -126,9 +133,6 @@ function keyPress (e) {
 			prevSongNames.pop();
             
             
-            
-            console.log(prevSongNames[0]);
-            
             if (prevSongNames.length > 0) {
                 playPrevSongs.innerHTML = '<p class="songs">[Le Gang] Drops In Mind</p>';
             } else {
@@ -143,8 +147,6 @@ function keyPress (e) {
                 playPrevSongs.innerHTML = '<p class="songs">' + prevSongNames[i].innerHTML + '</p>' + playPrevSongs.innerHTML;   
             };
             
-            console.log(prevSongNames);
-            
             
 			if (playState == true) {
 				allSongs[0].load();
@@ -152,8 +154,27 @@ function keyPress (e) {
 			}
 		}
 	}
-	
-	console.log(e.keyCode);
-}
+    // UP
+    
+    if (key == 38) {
+        for (var i = 0; i < allSongs.length ; i++) {
+            if (allSongs[i].volume < 1 ) {
+                allSongs[i].volume += 0.2;
+            }
+        }
+        volumeNum += 20;     
+        volume.innerHTML = volumeNum + "%";
 
+    }
+    // DOWN
+    if (key == 40) {
+        for (var i = 0; i < allSongs.length ; i++) {
+            if (allSongs[i].volume > 0 ) {
+                allSongs[i].volume -= 0.2;
+            }
+        }
+        volumeNum -= 20;     
+        volume.innerHTML = volumeNum + "%";
+    }
+}
 window.addEventListener('keydown', keyPress);
