@@ -77,7 +77,7 @@ function keyPress (e) {
         var playPrevSongs = document.querySelector("#previous");
         
         
-		if (allSongs.length > 1) {
+		if (songNames.length > 1) {
 			allSongs[0].pause();
             prevSongNames.push(songNames[0]);
 			prevSongs.unshift(allSongs[0]);
@@ -119,7 +119,7 @@ function keyPress (e) {
     
     // LEFT
 	if (key == 37) {
-		if (prevSongs.length != 0) {
+		if (songNames.length == 1) {
             var nowPlayingName = document.querySelector(".now-playing");
             var playPrevSongs = document.querySelector("#previous");
             var nowPlaying = "";
@@ -169,9 +169,10 @@ function keyPress (e) {
                 allSongs[i].volume += 0.2;
             }
         }
-        volumeNum += 20;     
-        volume.innerHTML = volumeNum + "%";
-
+        if (volumeNum < 100) {
+            volumeNum += 20;     
+            volume.innerHTML = volumeNum + "%";
+        }
     }
     // DOWN
     if (key == 40) {
@@ -180,8 +181,10 @@ function keyPress (e) {
                 allSongs[i].volume -= 0.2;
             }
         }
-        volumeNum -= 20;     
-        volume.innerHTML = volumeNum + "%";
+        if (volumeNum > 0) {
+            volumeNum -= 20;     
+            volume.innerHTML = volumeNum + "%";
+        }
     }
 }
 
