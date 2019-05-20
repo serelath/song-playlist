@@ -71,7 +71,7 @@ function keyPress (e) {
     
     // RIGHT
 	if (key == 39 && notIntro == true) {
-		var nowPlayingName = document.querySelector(".now-playing p");
+		var nowPlayingName = document.querySelector(".now-playing");
         var playingNext = document.querySelector("#playing-next");
         var nowPlaying = "";
         var playPrevSongs = document.querySelector("#previous");
@@ -83,7 +83,13 @@ function keyPress (e) {
 			prevSongs.unshift(allSongs[0]);
 			allSongs.shift();
             
+            
             nowPlaying = songNames[1].innerHTML;
+//            if (songNames[1] != null) {
+//                
+//            } else {
+//                nowPlaying = songNames[1];
+//            }
             songNames.shift();
             nowPlayingName.innerHTML = nowPlaying;
             
@@ -153,6 +159,7 @@ function keyPress (e) {
 				allSongs[0].play();
 			}
 		}
+        console.log(songNames);
 	}
     // UP
     
@@ -177,4 +184,13 @@ function keyPress (e) {
         volume.innerHTML = volumeNum + "%";
     }
 }
+
+function changeImage () {
+    var img = this.getAttribute('data-image');
+    var image = document.querySelector('image');
+    
+    image.href.baseVal = img;
+}
+
+allSongs.forEach(audios => audios.addEventListener('play', changeImage));
 window.addEventListener('keydown', keyPress);
