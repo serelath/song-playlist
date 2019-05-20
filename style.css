@@ -89,42 +89,19 @@ i {
 	margin: 50px;
 }
 p {
-	margin: 0 0;
-	padding: 2px 0;
+	margin: 0 0 !important;
+	padding: 2px 0 !important;
+    font-size: 1.1rem;
+    user-select: none;
 }
 .songs {
 	position: relative;
 	left: 0;
-	cursor: pointer;
 	transition: 0.1s;
 	width: 300px;
 }
 .songs:hover {
 	left: 5px;
-}
-.pages p {
-	position: relative;
-	left: -20px;
-}
-.prev, .next {
-	width: 0; 
-	height: 0; 
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent; 
-	cursor: pointer;
-	float: left;
-	position: relative;
-	top: 3px;
-	padding: 0.5px;
-	z-index: 10;
-}
-.prev {
-	left: 40px;
-	border-right:9px solid black; 
-}
-.next {
-	border-left:9px solid black;
-	left: 45px;
 }
 
 /*******/

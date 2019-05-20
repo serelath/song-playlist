@@ -1,6 +1,7 @@
 // SONG NAMES
 var allSongNames = document.querySelectorAll('p.songs');
 var songNames = [];
+var prevSongNames = [];
 
 allSongNames.forEach(function(e) {
 	songNames.push(e);
@@ -37,9 +38,7 @@ function keyPress (e) {
 		
 		var intro = document.getElementById("intro");
 		var paused = document.querySelector("text");
-		
-		console.log(allSongs[0]);
-		
+        
 		function setAttr(element, attribute) {
 			element.setAttribute("style", attribute);
 		}
@@ -66,12 +65,42 @@ function keyPress (e) {
 		}
 	}
 	if (key == 39 && notIntro == true) {
-		var nowPlayingName = document.getElementsByClassName(".now-playing").innerHTML = allSongNames[0];
-		
-		if (allSongs.length != 0) {
+		var nowPlayingName = document.querySelector(".now-playing p");
+        var playingNext = document.querySelector("#playing-next");
+        var nowPlaying = "";
+        var playPrevSongs = document.querySelector("#previous");
+        
+        
+		if (allSongs.length != 1) {
 			allSongs[0].pause();
+            prevSongNames.push(songNames[0]);
 			prevSongs.unshift(allSongs[0]);
 			allSongs.shift();
+            
+            nowPlaying = songNames[1].innerHTML;
+            songNames.shift();
+            nowPlayingName.innerHTML = nowPlaying;
+            
+            
+            playingNext.innerHTML = "";
+        
+            for (var i = 1 ; i < songNames.length; i++) {
+                    playingNext.innerHTML += '<p class="songs">' + songNames[i].innerHTML + '</p>';   
+                };
+            
+            console.log(prevSongNames);
+
+            playPrevSongs.innerHTML = "";
+            
+            playPrevSongs.innerHTML = '<p class="songs">[Le Gang] Drops In Mind</p>';
+            
+            for (var i = 1 ; i < prevSongNames.length; i++) {
+                playPrevSongs.innerHTML += '<p class="songs">' + prevSongNames[i].innerHTML + '</p>';   
+            };
+            
+            console.log(playPrevSongs.innerHTML);
+            
+            
 			if (playState == true) {
 				allSongs[0].load();
 				allSongs[0].play();
@@ -80,10 +109,26 @@ function keyPress (e) {
 	}
 	if (key == 37) {
 		if (prevSongs.length != 0) {
+            var nowPlayingName = document.querySelector(".now-playing p");
+            var playPrevSongs = document.querySelector("#previous");
+            
+            
 			allSongs[0].pause();
 			allSongs.unshift(prevSongs[0]);
 			prevSongs.shift();
-			console.log(prevSongs);
+            
+			songNames.unshift(prevSongNames[0]);
+			prevSongNames.shift();
+            
+            playPrevSongs.innerHTML = "";
+            
+            for (var i = 1 ; i < prevSongs.length; i++) {
+                playPrevSongs.innerHTML += '<p class="songs">' + prevSongs[i].innerHTML + '</p>';   
+            };
+            
+			console.log(prevSongNames);
+            
+            
 			if (playState == true) {
 				allSongs[0].load();
 				allSongs[0].play();
