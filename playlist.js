@@ -71,7 +71,7 @@ function keyPress (e) {
         var playPrevSongs = document.querySelector("#previous");
         
         
-		if (allSongs.length != 1) {
+		if (allSongs.length > 1) {
 			allSongs[0].pause();
             prevSongNames.push(songNames[0]);
 			prevSongs.unshift(allSongs[0]);
@@ -88,18 +88,16 @@ function keyPress (e) {
                     playingNext.innerHTML += '<p class="songs">' + songNames[i].innerHTML + '</p>';   
                 };
             
-            console.log(prevSongNames);
+            
 
             playPrevSongs.innerHTML = "";
             
             playPrevSongs.innerHTML = '<p class="songs">[Le Gang] Drops In Mind</p>';
             
             for (var i = 1 ; i < prevSongNames.length; i++) {
-                playPrevSongs.innerHTML += '<p class="songs">' + prevSongNames[i].innerHTML + '</p>';   
+                playPrevSongs.innerHTML = '<p class="songs">' + prevSongNames[i].innerHTML + '</p>' + playPrevSongs.innerHTML;   
             };
-            
-            console.log(playPrevSongs.innerHTML);
-            
+            console.log(prevSongNames);
             
 			if (playState == true) {
 				allSongs[0].load();
@@ -109,24 +107,43 @@ function keyPress (e) {
 	}
 	if (key == 37) {
 		if (prevSongs.length != 0) {
-            var nowPlayingName = document.querySelector(".now-playing p");
+            var nowPlayingName = document.querySelector(".now-playing");
             var playPrevSongs = document.querySelector("#previous");
+            var nowPlaying = "";
+            
+            if (prevSongNames.length == 1) {
+                nowPlayingName.innerHTML = "<p class='songs'>[Le Gang] Drops In Mind</p>";
+            } else {
+                nowPlaying = prevSongNames[prevSongNames.length - 1].innerHTML;
+                nowPlayingName.innerHTML = nowPlaying;
+            }
             
             
 			allSongs[0].pause();
 			allSongs.unshift(prevSongs[0]);
 			prevSongs.shift();
             
-			songNames.unshift(prevSongNames[0]);
-			prevSongNames.shift();
+			prevSongNames.pop();
             
-            playPrevSongs.innerHTML = "";
             
-            for (var i = 1 ; i < prevSongs.length; i++) {
-                playPrevSongs.innerHTML += '<p class="songs">' + prevSongs[i].innerHTML + '</p>';   
+            
+            console.log(prevSongNames[0]);
+            
+            if (prevSongNames.length > 0) {
+                playPrevSongs.innerHTML = '<p class="songs">[Le Gang] Drops In Mind</p>';
+            } else {
+                 playPrevSongs.innerHTML = "";
+            }
+            
+            if (nowPlaying != nowPlaying) {
+                playPrevSongs.innerHTML = "";
+            }
+            
+            for (var i = 1 ; i < prevSongNames.length; i++) {
+                playPrevSongs.innerHTML = '<p class="songs">' + prevSongNames[i].innerHTML + '</p>' + playPrevSongs.innerHTML;   
             };
             
-			console.log(prevSongNames);
+            console.log(prevSongNames);
             
             
 			if (playState == true) {

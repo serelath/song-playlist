@@ -64,9 +64,6 @@ i {
 	font-size: 1.2rem;
 	padding: 8px 8px 8px 8px;
 }
-#volume i {
-	cursor: pointer;
-}
 #volume p {
 	position: relative;
 	top: -2px;
@@ -211,9 +208,11 @@ text {
 	@keyframes scale {
 		0% {
 			transform: scale(1.5);
+            filter: brightness(1.1);
 		}
 		25%,50% {
 			transform: scale(1.7);
+            filter: brightness(1);
 		}
 		75% {
 			transform: scale(1.5);
